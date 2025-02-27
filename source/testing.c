@@ -20,7 +20,7 @@ typedef struct TestResults {
 	unsigned int assertionsFailed;
 } TestResults;
 
-extern FILE *output;
+FILE *output;
 // Used to share test results with child processes.
 static TestResults *results;
 
@@ -85,51 +85,51 @@ void assertImpl(bool success, char *testName, char *fileName, unsigned int lineN
 }
 
 void assertEqIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a == b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s == %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a == b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s == %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertNeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a != b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s != %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a != b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s != %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertGtIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a > b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s > %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a > b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s > %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertLtIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a < b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s < %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a < b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s < %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertGeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a >= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s >= %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a >= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s >= %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertLeIntImpl(int64_t a, int64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a <= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s <= %s (%s = %lld, %s = %lld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a <= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s <= %s (%s = %ld, %s = %ld).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertEqUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a == b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s == %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a == b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s == %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertNeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a != b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s != %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a != b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s != %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertGtUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a > b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s > %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a > b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s > %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertLtUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a < b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s < %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a < b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s < %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertGeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a >= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s >= %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a >= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s >= %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertLeUIntImpl(uint64_t a, uint64_t b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
-	if (!updateAssertionResults(a <= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s <= %s (%s = %llu, %s = %llu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
+	if (!updateAssertionResults(a <= b)) fprintf(output, "[%s:%s:%u] Assertion failed: %s <= %s (%s = %lu, %s = %lu).\n", testName, fileName, lineNumber, expressionA, expressionB, expressionA, a, expressionB, b);
 }
 
 void assertEqFloatImpl(double a, double b, char *testName, char *fileName, unsigned int lineNumber, char *expressionA, char *expressionB) {
