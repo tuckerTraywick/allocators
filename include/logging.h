@@ -5,9 +5,9 @@
 
 #define LOG_FORMAT "[%s:%d:%s] "
 #define DEBUG_PREFIX   "DEBUG "
-#define INFO_PREFIX    "INFO "
+#define INFO_PREFIX    ""//"INFO "
 #define WARNING_PREFIX "WARNING "
-#define ERROR_PREFIX   "ERROR "
+#define ERROR_PREFIX   ""//"ERROR "
 
 #define logDebug(string) if (logDebugOutput) {fprintf(logDebugOutput, DEBUG_PREFIX LOG_FORMAT string "\n", __FILE__, __LINE__, __func__);} else {}
 #define logfDebug(string, ...) if (logDebugOutput) {fprintf(logDebugOutput, DEBUG_PREFIX LOG_FORMAT string "\n", __FILE__, __LINE__, __func__, __VA_ARGS__);} else {}
