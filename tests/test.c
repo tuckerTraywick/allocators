@@ -7,7 +7,7 @@ static void testArenaDestruction(void) {
 }
 
 int main(void) {
-	output = stdout;
+	testOutput = stdout;
 	beginTesting();
 		runTest(testArenaDestruction);
 	endTesting();
