@@ -9,4 +9,4 @@ void ArenaDestroy(Arena *arena);
 
 void *ArenaAllocate(Arena *arena, size_t size);
 
-#endif
+#endif // ALLOCATORS_H
