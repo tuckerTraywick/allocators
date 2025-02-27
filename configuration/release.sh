@@ -3,5 +3,5 @@ source configuration/all.sh
 flags+=" -O2"
 includes+=
 libraries+=
-defines+=
+defines+=" -D DISABLE_DEBUG_ASSERTIONS"
 valgrindFlags+=

@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "allocators.h"
+#include "assertions.h"
 
 struct Arena {
 	Arena *parent;
@@ -16,6 +17,8 @@ Arena *ArenaCreate(Arena *parent, size_t capacity) {
 		// return;
 	}
 	char *buffer = malloc(sizeof (Arena) + capacity);
+	debugAssert(buffer && "malloc() failed.");
+	debugAssert(1 ==2);
 	*(Arena*)buffer = (Arena){
 		.capacity = capacity,
 		.data = buffer + sizeof (Arena),

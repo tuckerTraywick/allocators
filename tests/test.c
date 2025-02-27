@@ -1,5 +1,16 @@
+#include <stdlib.h>
 #include "testing.h"
+#include "logging.h"
+#include "assertions.h"
 #include "allocators.h"
+
+void handleFailedReleaseAssertion(void) {
+	abort();
+}
+
+void handleFailedDebugAssertion(void) {
+	abort();
+}
 
 static void testArenaDestruction(void) {
 	Arena *arena = ArenaCreate(NULL, 10*sizeof (int));
@@ -7,7 +18,7 @@ static void testArenaDestruction(void) {
 }
 
 int main(void) {
-	testOutput = stdout;
+	logDebugOutput = logInfoOutput = logWarningOutput = logErrorOutput = stdout;
 	beginTesting();
 		runTest(testArenaDestruction);
 	endTesting();
